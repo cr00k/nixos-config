@@ -116,7 +116,7 @@
       set -ag terminal-overrides ",xterm-256color:RGB"
 
       # Status bar — top, minimal
-      set -g status-position top
+      # set -g status-position top
       set -g status-style 'bg=default fg=white'
       set -g status-left  '#[bold]#S '
       # set -g status-right '#[fg=cyan]%H:%M #[fg=yellow]%d %b'
@@ -449,5 +449,10 @@
     nix-du         # disk usage of nix store
     duf            # pretty disk usage
     dust        # intuitive du
+
+    # Rust
+    cargo
+    rustc
+    gcc
   ];
 }
