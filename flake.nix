@@ -13,15 +13,28 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";   # share nixpkgs, no duplicate
     };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";   # share nixpkgs, no duplicate
+    };
   };
 
   # ─────────────────────────────────────────────
   # Outputs
   # ─────────────────────────────────────────────
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, fenix, ... }: 
+  let      
+    system = "x86_64-linux";
+    pkgs   = nixpkgs.legacyPackages.${system};
+    rust   = fenix.packages.${system}.combine [
+      fenix.packages.${system}.stable.toolchain
+      fenix.packages.${system}.targets.wasm32-unknown-unknown.stable.toolchain
+    ];
+  in {
 
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
 
       modules = [
 
@@ -33,6 +46,20 @@
           home-manager.users.rok  = import ./home.nix;  # ← change username
         }
       ];
+    };
+
+    # ─────────────────────────────────────────────
+    # Rust dev shell — run with: nix develop
+    # ─────────────────────────────────────────────
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = [
+        rust            # rustc, cargo, clippy, rustfmt + wasm target
+        pkgs.gcc        # linker (fixes "cc not found")
+        pkgs.pkg-config
+        pkgs.trunk      # build tool for Leptos/WASM
+      ];
+
+      RUST_SRC_PATH = "${rust}/lib/rustlib/src/rust/library";
     };
   };
 }
