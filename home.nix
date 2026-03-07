@@ -34,6 +34,7 @@
       update  = "cd ~/.config/nixos-config && nix flake update && sudo nixos-rebuild switch --flake .#thinkpad";
       cleanup = "sudo nix-collect-garbage -d";
       bootclean = "sudo nixos-rebuild boot --flake ~/.config/nixos-config#thinkpad";
+      sync = "cd ~/.config/nixos-config && git add -A && git commit -m 'update flake.lock' && git push";
 
       # Git shortcuts
       g  = "git";
