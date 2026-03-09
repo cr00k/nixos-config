@@ -209,7 +209,7 @@
     chromium
 
     # ── Development — Rust ──────────────────────
-    rustup         # manages rustc, cargo, rust-analyzer, clippy, etc.
+    #rustup        # manages rustc, cargo, rust-analyzer, clippy, etc.
                    # after install: rustup default stable
     pkg-config     # needed by many Rust crates
     openssl

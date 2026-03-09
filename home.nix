@@ -116,10 +116,11 @@
       set -ag terminal-overrides ",xterm-256color:RGB"
 
       # Status bar — top, minimal
-      # set -g status-position top
+      set -g status-position top
       set -g status-style 'bg=default fg=white'
       set -g status-left  '#[bold]#S '
       # set -g status-right '#[fg=cyan]%H:%M #[fg=yellow]%d %b'
+      set -g status-right ' '
       set -g window-status-current-style 'bold fg=cyan'
 
       # Split with | and - (more intuitive than " and %)
@@ -454,5 +455,8 @@
     cargo
     rustc
     gcc
+    rust-analyzer
+    rustfmt
+    clippy
   ];
 }
