@@ -256,6 +256,7 @@
     powertop
     usbutils
     pciutils
+    file-roller
   ];
 
   # ─────────────────────────────────────────────
