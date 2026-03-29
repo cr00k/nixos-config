@@ -9,12 +9,32 @@
   home.username      = "rok";
   home.homeDirectory = "/home/rok";
   home.stateVersion  = "25.11";      # do not change after first install
-  home.file.".config/monitors.xml".source = ./monitors.xml;
+  home.file.".config/monitors.xml" = {
+    source = ./monitors.xml;
+    force = true;
+  };
   home.file."Pictures/wallpaper.jpg".source = ./wallpaper.jpg;
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;
-  
+
+  # ─────────────────────────────────────────────
+  # Gnome
+  # ─────────────────────────────────────────────
+ 
+  programs.gnome-shell = {
+    enable = true;
+
+    extensions = [
+     {
+        package = pkgs.gnomeExtensions.appindicator;
+      }
+      {
+        package = pkgs.gnomeExtensions.blur-my-shell;
+      }
+    ];
+  };
+
   # ─────────────────────────────────────────────
   # Git
   # ─────────────────────────────────────────────
@@ -458,5 +478,9 @@
     rust-analyzer
     rustfmt
     clippy
+    viber
+    darktable
+    adwaita-icon-theme
+    hicolor-icon-theme
   ];
 }

@@ -139,6 +139,7 @@
     enable      = true;
     powerOnBoot = true;
   };
+
   services.printing.enable = true;
 
   # ─────────────────────────────────────────────
@@ -231,6 +232,7 @@
     libreoffice-fresh
     inkscape
     gimp
+    # darktable
     blender
     
     # ── Privacy & downloads ─────────────────────
@@ -239,7 +241,7 @@
     wireguard-tools
 
     # ── Communication ───────────────────────────
-    viber          # allowUnfree = true required
+    # viber          # allowUnfree = true required
     jitsi-meet-electron
 
     # ── Media ───────────────────────────────────
@@ -254,8 +256,8 @@
 
     # ── GNOME tweaks & extensions ────────────────
     gnome-tweaks
-    gnomeExtensions.appindicator   # system tray icons (Viber, etc.)
-    gnomeExtensions.blur-my-shell
+    #gnomeExtensions.appindicator   # system tray icons (Viber, etc.)
+    #gnomeExtensions.blur-my-shell
 
     # ── System utilities ────────────────────────
     brightnessctl
