@@ -196,6 +196,7 @@
     tree
     xdg-utils
     man-pages
+    kdePackages.kleopatra
 
     # ── Terminal & shell ────────────────────────
     ghostty
