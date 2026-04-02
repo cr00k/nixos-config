@@ -5,6 +5,12 @@
 
 { config, pkgs, ... }:
 
+let
+  rust = pkgs.rust-bin.stable.latest.default.override {
+    targets = [ "wasm32-unknown-unknown" ];
+  };
+in
+
 {
   home.username      = "rok";
   home.homeDirectory = "/home/rok";
@@ -67,7 +73,7 @@
 
     initExtra = ''
       # Rust / Cargo
-      export PATH="$HOME/.cargo/bin:$PATH"
+      # export PATH="$HOME/.cargo/bin:$PATH"
 
       # npm globals (for Claude Code CLI etc.)
       export PATH="$HOME/.npm-global/bin:$PATH"
@@ -222,7 +228,6 @@
       marksman          # Markdown LSP
 
       # Formatters / linters
-      rustfmt
       nodePackages.prettier
       stylua            # Lua formatter
       nixpkgs-fmt       # Nix formatter
@@ -470,17 +475,15 @@
     nix-du         # disk usage of nix store
     duf            # pretty disk usage
     dust        # intuitive du
-
-    # Rust
-    cargo
-    rustc
-    gcc
-    rust-analyzer
-    rustfmt
-    clippy
     viber
     darktable
+    exercism
     adwaita-icon-theme
     hicolor-icon-theme
+
+    rust
+    gcc
+    rust-analyzer
+
   ];
 }

@@ -13,17 +13,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";   # share nixpkgs, no duplicate
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   # ─────────────────────────────────────────────
   # Outputs
   # ─────────────────────────────────────────────
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }: {
 
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       modules = [
+
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        })
 
         ./configuration.nix
 
