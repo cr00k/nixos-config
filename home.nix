@@ -221,14 +221,14 @@ in
     extraPackages = with pkgs; [
       # LSP servers
       rust-analyzer
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted  # html, css, json, eslint
+      typescript-language-server
+      vscode-langservers-extracted  # html, css, json, eslint
       lua-language-server
       nil               # Nix LSP
       marksman          # Markdown LSP
 
       # Formatters / linters
-      nodePackages.prettier
+      prettier
       stylua            # Lua formatter
       nixpkgs-fmt       # Nix formatter
 
