@@ -8,6 +8,7 @@
 let
   rust = pkgs.rust-bin.stable.latest.default.override {
     targets = [ "wasm32-unknown-unknown" ];
+    extensions = [ "rust-src" "clippy" "rustfmt" ];
   };
 in
 
@@ -484,6 +485,13 @@ in
     rust
     gcc
     rust-analyzer
+    jetbrains.rust-rover
+    openssl
+    pkg-config
 
+    # "Gaming" :)
+    lutris
+    retroarch
   ];
 }
+
