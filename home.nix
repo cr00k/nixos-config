@@ -74,7 +74,7 @@ in
 
     initExtra = ''
       # Rust / Cargo
-      # export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="$HOME/.cargo/bin:$PATH"
 
       # npm globals (for Claude Code CLI etc.)
       export PATH="$HOME/.npm-global/bin:$PATH"
