@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  boot.kernelModules = [ "kvm-amd" ];
+
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
