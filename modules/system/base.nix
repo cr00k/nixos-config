@@ -13,6 +13,10 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # NTFS support
+  boot.supportedFilesystems = [ "ntfs" ];
+  system.fsPackages = [ pkgs.ntfs3g ];
+
   # Enable networking
   networking.networkmanager.enable = true;
     # Enable wireguard
