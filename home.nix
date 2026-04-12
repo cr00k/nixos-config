@@ -172,6 +172,8 @@ in
     enable = true;
     settings = {
       font-family = "IBM Plex Mono";
+      #font-family = "JetBrainsMono";
+      #font-family = "FiraCode";
       font-size = 11;
       window-decoration = false;
     
@@ -217,7 +219,9 @@ in
     defaultEditor = true;
     viAlias       = true;
     vimAlias      = true;
-
+    withRuby      = false;
+    withPython3   = false;
+    
     # LSP servers and tools installed declaratively via Nix
     extraPackages = with pkgs; [
       # LSP servers
@@ -485,9 +489,9 @@ in
     rust
     gcc
     rust-analyzer
-    jetbrains.rust-rover
-    openssl
-    pkg-config
+    # jetbrains.rust-rover
+    # openssl
+    # pkg-config
 
     # "Gaming" :)
     lutris
