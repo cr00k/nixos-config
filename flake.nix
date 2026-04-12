@@ -1,43 +1,49 @@
 {
-  description = "ThinkPad T14 Gen2 NixOS configuration";
+   description = "Rok's NixOS fleet";
 
-  # ─────────────────────────────────────────────
-  # Inputs — pinned in flake.lock after first build
-  # Update all:  nix flake update
-  # Update one:  nix flake update nixpkgs
-  # ─────────────────────────────────────────────
-  inputs = {
+   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";   # share nixpkgs, no duplicate
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  # ─────────────────────────────────────────────
-  # Outputs
-  # ─────────────────────────────────────────────
-  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }: {
-
-    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }:
+    let
       system = "x86_64-linux";
 
-      modules = [
+      mkHost = hostPath: hostName: homePath:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ({ ... }: {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+              networking.hostName = hostName;
+            })
 
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ rust-overlay.overlays.default ];
-        })
+            ./modules/system/base.nix
+            ./modules/system/gnome.nix
+            ./modules/system/audio.nix
+            hostPath
 
-        ./configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs   = true;   # share system pkgs, no duplication
-          home-manager.useUserPackages = true;
-          home-manager.users.rok  = import ./home.nix;  # ← change username
-        }
-      ];
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.rok = import homePath;
+            }
+          ];
+        };
+    in {
+      nixosConfigurations = {
+        thinkpad = mkHost ./hosts/thinkpad/default.nix "thinkpad" ./home/rok-thinkpad.nix;
+        mandarina = mkHost ./hosts/mandarina/default.nix "mandarina" ./home/rok-mandarina.nix;
+        # proxman = mkHost ./hosts/proxman/default.nix "proxman" ./home/rok-proxman.nix;
+      };
     };
-  };
 }
+
