@@ -1,5 +1,6 @@
 # nixos-config
 
+OLD
 Declarative NixOS configuration for ThinkPad T14 Gen2 (Intel i5 Gen11).
 
 ## Structure
