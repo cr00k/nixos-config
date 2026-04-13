@@ -19,11 +19,8 @@
       find = "fd";
 
       # NixOS shortcuts
-      #rb-thinkpad = "sudo nixos-rebuild switch --flake ~/.config/nixos-config#thinkpad";
-      #rb-mandarina  = "sudo nixos-rebuild switch --flake ~/.config/nixos-config#mandarina";
       rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos-config#$(hostname)";
-      bclean-thinkpad = "sudo nixos-rebuild boot --flake ~/.config/nixos-config#thinkpad";
-      bclean-mandarina = "sudo nixos-rebuild boot --flake ~/.config/nixos-config#mandarina";
+      bootclean = "sudo nixos-rebuild boot --flake ~/.config/nixos-config#$(hostname)";
       update-flake = "cd ~/.config/nixos-config && nix flake update";
       cleanup = "nix-collect-garbage -d";
 
