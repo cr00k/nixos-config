@@ -10,4 +10,5 @@
   # ─────────────────────────────────────────────
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
+  services.gnome.gcr-ssh-agent.enable = false;
 }
