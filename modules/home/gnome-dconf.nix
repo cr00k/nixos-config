@@ -1,7 +1,7 @@
 # gnome-dconf.nix
 # GNOME preferences and dconf settings
 
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   # ─────────────────────────────────────────────
@@ -55,8 +55,12 @@
       ];
     };
 
+    "org/gnome/desktop/session" = {
+      idle-delay = lib.hm.gvariant.mkUint32 120;
+    };
+
     "org/gnome/desktop/screensaver" = {
-      lock-delay = 0;
+      lock-delay = lib.hm.gvariant.mkUint32 0;
     };
     
     "org/gnome/settings-daemon/plugins/media-keys" = {
