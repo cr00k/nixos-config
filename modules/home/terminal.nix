@@ -22,7 +22,7 @@
       rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos-config#$(hostname)";
       bootclean = "sudo nixos-rebuild boot --flake ~/.config/nixos-config#$(hostname)";
       update-flake = "cd ~/.config/nixos-config && nix flake update";
-      cleanup = "nix-collect-garbage -d";
+      cleanup = "sudo nix-collect-garbage -d";
 
       # Git shortcuts
       g  = "git";
