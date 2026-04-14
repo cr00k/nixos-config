@@ -27,6 +27,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme     = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
       accent-color     = "purple";
       clock-show-date  = true;
       font-name        = "IBM Plex Sans 11";

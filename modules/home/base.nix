@@ -31,6 +31,25 @@ in
     };
   };
 
+ 
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Adwaita-dark";
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    
+    gtk4 = {
+      theme = {
+        name = "Adwaita-dark";
+      };
+    };
+  };
+
   # ─────────────────────────────────────────────
   # Packages that only this user needs
   # (system-wide ones stay in configuration.nix)
