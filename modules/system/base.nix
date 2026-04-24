@@ -78,6 +78,7 @@
     btop
     unzip
     p7zip
+    zip
     ripgrep        # fast grep (rg)
     fd             # fast find
     bat            # cat with syntax highlighting

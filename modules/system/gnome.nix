@@ -47,6 +47,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji	# was: noto-fonts-emoji
     liberation_ttf
+    carlito
     ibm-plex
   ];
   fonts.fontconfig.defaultFonts = {
