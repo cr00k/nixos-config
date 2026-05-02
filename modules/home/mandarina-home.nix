@@ -13,13 +13,4 @@
     power-button-action = "interactive";
   };
  };
-
-  xdg.desktopEntries.virt-manager-dark = {
-    name = "Virtual Machine Manager (Dark)";
-    genericName = "Virtual Machine Manager";
-    exec = "env GTK_THEME=Adwaita:dark virt-manager";
-    terminal = false;
-    categories = [ "System" ];
-    icon = "virt-manager";
-  };
 }

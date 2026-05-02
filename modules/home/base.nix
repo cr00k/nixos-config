@@ -71,6 +71,7 @@ in
     # jetbrains.rust-rover
     lutris
     retroarch
+    kicad
   ];
 }
 
