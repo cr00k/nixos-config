@@ -89,6 +89,7 @@
     xdg-utils
     man-pages
     kdePackages.kleopatra
+    screen 
 
     # ── Terminal & shell ────────────────────────
     ghostty
@@ -110,6 +111,8 @@
     # ── Development — JavaScript ─────────────────
     pnpm
     yarn
+    python3
+
 
     # ── Claude Code CLI ──────────────────────────
     # Install via npm after boot:  npm install -g @anthropic-ai/claude-code
@@ -181,6 +184,7 @@
       "audio"
       "input"
       "lp"              # printing
+      "dialout"
     ];
   };
 
