@@ -77,6 +77,7 @@
     fastfetch
     btop
     unzip
+    unrar
     p7zip
     zip
     ripgrep        # fast grep (rg)

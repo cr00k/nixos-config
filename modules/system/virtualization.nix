@@ -19,6 +19,8 @@
   environment.systemPackages = with pkgs; [
     qemu
     dnsmasq
+    virtio-win
+    virt-viewer
   ];
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
