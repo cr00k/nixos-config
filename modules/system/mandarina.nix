@@ -11,5 +11,13 @@
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
   services.gnome.gcr-ssh-agent.enable = true;
+  
+  # ─────────────────────────────────────────────
+  # XMrig specifics
+  # ─────────────────────────────────────────────
+  boot.kernelModules = [ "msr" ]; # for xmrig
+  boot.kernel.sysctl."vm.nr_hugepages" = 1280;
+  boot.kernelParams = [ "hugepagesz=1G" "hugepages=3" ];
+
 
 }

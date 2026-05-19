@@ -70,8 +70,9 @@ in
     rust-analyzer
     # jetbrains.rust-rover
     lutris
-    retroarch
+    retroarch-full
     kicad
+    ipmitool
   ];
 }
 
