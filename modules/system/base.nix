@@ -89,7 +89,7 @@
     tree
     xdg-utils
     man-pages
-    nslookup
+    # nslookup
     kdePackages.kleopatra
     screen 
 

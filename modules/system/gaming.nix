@@ -15,5 +15,7 @@
     mangohud
     protonup-ng
     steam-run
+    retroarch-full
+
   ];
 }

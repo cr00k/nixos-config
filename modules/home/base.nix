@@ -68,11 +68,7 @@ in
     rust
     gcc
     rust-analyzer
-    # jetbrains.rust-rover
-    lutris
-    retroarch-full
     kicad
-    ipmitool
   ];
 }
 
