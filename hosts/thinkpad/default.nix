@@ -3,6 +3,9 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/thinkpad.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/audio.nix
+ 
   ];
 
   # networking.hostName = "thinkpad";

@@ -26,9 +26,7 @@
             })
 
             ./modules/system/base.nix
-            ./modules/system/gnome.nix
-            ./modules/system/audio.nix
-            hostPath
+           hostPath
 
             home-manager.nixosModules.home-manager
             {

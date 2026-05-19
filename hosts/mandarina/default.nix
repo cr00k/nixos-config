@@ -7,6 +7,9 @@
     ../../modules/system/virtualization.nix
     ../../modules/system/gaming.nix
     ../../modules/system/ollama.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/audio.nix
+ 
   ];
 
   fileSystems."/mnt/data" = {
