@@ -194,7 +194,7 @@
   # Security & Firewall
   # ─────────────────────────────────────────────
   security.sudo.wheelNeedsPassword = true;
-  services.openssh.enable = false;   # no SSH server on a machines
+  # services.openssh.enable = false;   # no SSH server on a machines
 
   networking.firewall = {
     enable          = true;
