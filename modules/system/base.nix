@@ -130,6 +130,10 @@
     gimp
     # darktable
     blender
+    krita
+    aseprite
+
+
     
     # ── Privacy & downloads ─────────────────────
     tor-browser
